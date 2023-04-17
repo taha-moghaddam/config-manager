@@ -4,9 +4,12 @@ namespace Encore\Admin\Config;
 
 use Encore\Admin\Admin;
 use Encore\Admin\Extension;
+use Illuminate\Support\Facades\Cache;
 
 class Config extends Extension
 {
+    const CACHE_KEY_DATA = 'admin_config.name_value';
+
     /**
      * Load configure into laravel from database.
      *
@@ -14,7 +17,11 @@ class Config extends Extension
      */
     public static function load()
     {
-        foreach (ConfigModel::all(['name', 'value']) as $config) {
+        $configData = Cache::remember(self::CACHE_KEY_DATA, 60, function () {
+            return ConfigModel::all(['name', 'value']);
+        });
+
+        foreach ($configData as $config) {
             config([$config['name'] => $config['value']]);
         }
     }

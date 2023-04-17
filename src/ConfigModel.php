@@ -2,10 +2,14 @@
 
 namespace Encore\Admin\Config;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class ConfigModel extends Model
 {
+    use DefaultDatetimeFormat;
+
     /**
      * Settings constructor.
      *
@@ -18,6 +22,21 @@ class ConfigModel extends Model
         $this->setConnection(config('admin.database.connection') ?: config('database.default'));
 
         $this->setTable(config('admin.extensions.config.table', 'admin_config'));
+    }
+
+    /**
+     * On mode boot
+     * Use as observer
+     *
+     * @return void
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        self::saved(function ($model) {
+            Cache::forget(Config::CACHE_KEY_DATA);
+        });
     }
 
     /**
