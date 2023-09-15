@@ -2,7 +2,7 @@
 
 namespace Encore\Admin\Config;
 
-use Encore\Admin\Admin;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Extension;
 use Illuminate\Support\Facades\Cache;
 
