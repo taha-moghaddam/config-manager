@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Bikaraan\BCore\Config;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Extension;
+use Bikaraan\BCore\Facades\Admin;
+use Bikaraan\BCore\Extension;
 use Illuminate\Support\Facades\Cache;
 
 class Config extends Extension
@@ -48,8 +48,8 @@ class Config extends Extension
         parent::routes(function ($router) {
             /* @var \Illuminate\Routing\Router $router */
             $router->resource(
-                config('admin.extensions.config.name', 'config'),
-                config('admin.extensions.config.controller', 'Encore\Admin\Config\ConfigController')
+                config('bcore.extensions.config.name', 'config'),
+                config('bcore.extensions.config.controller', 'Bikaraan\BCore\Config\ConfigController')
             );
         });
     }

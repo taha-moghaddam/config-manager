@@ -13,9 +13,9 @@ class CreateConfigTable extends Migration
      */
     public function up()
     {
-        $connection = config('admin.database.connection') ?: config('database.default');
+        $connection = config('bcore.database.connection') ?: config('database.default');
 
-        $table = config('admin.extensions.config.table', 'admin_config');
+        $table = config('bcore.extensions.config.table', 'admin_config');
 
         Schema::connection($connection)->create($table, function (Blueprint $table) {
             $table->increments('id');
@@ -33,9 +33,9 @@ class CreateConfigTable extends Migration
      */
     public function down()
     {
-        $connection = config('admin.database.connection') ?: config('database.default');
+        $connection = config('bcore.database.connection') ?: config('database.default');
 
-        $table = config('admin.extensions.config.table', 'admin_config');
+        $table = config('bcore.extensions.config.table', 'admin_config');
 
         Schema::connection($connection)->dropIfExists($table);
     }

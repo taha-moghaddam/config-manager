@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Bikaraan\BCore\Config;
 
-use Encore\Admin\Controllers\HasResourceActions;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Show;
+use Bikaraan\BCore\Controllers\HasResourceActions;
+use Bikaraan\BCore\Facades\Admin;
+use Bikaraan\BCore\Form;
+use Bikaraan\BCore\Grid;
+use Bikaraan\BCore\Layout\Content;
+use Bikaraan\BCore\Show;
 
 class ConfigController
 {
@@ -105,7 +105,7 @@ class ConfigController
 
         $form->display('id', __('admin.id'));
         $form->text('name', __('admin.name'))->rules('required');
-        if (config('admin.extensions.config.valueEmptyStringAllowed', false)) {
+        if (config('bcore.extensions.config.valueEmptyStringAllowed', false)) {
             $form->textarea('value', __('admin.value'));
         } else {
             $form->textarea('value', __('admin.value'))->rules('required');

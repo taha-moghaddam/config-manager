@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Bikaraan\BCore\Config;
 
-use Encore\Admin\Traits\DefaultDatetimeFormat;
+use Bikaraan\BCore\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
@@ -19,9 +19,9 @@ class ConfigModel extends Model
     {
         parent::__construct($attributes);
 
-        $this->setConnection(config('admin.database.connection') ?: config('database.default'));
+        $this->setConnection(config('bcore.database.connection') ?: config('database.default'));
 
-        $this->setTable(config('admin.extensions.config.table', 'admin_config'));
+        $this->setTable(config('bcore.extensions.config.table', 'admin_config'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ConfigModel extends Model
      */
     public function setValueAttribute($value = null)
     {
-        if (config('admin.extensions.config.valueEmptyStringAllowed', false)) {
+        if (config('bcore.extensions.config.valueEmptyStringAllowed', false)) {
             $this->attributes['value'] = is_null($value) ? '' : $value;
         } else {
             $this->attributes['value'] = $value;

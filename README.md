@@ -29,7 +29,7 @@ Open `app/Providers/AppServiceProvider.php`, and call the `Config::load()` metho
 
 namespace App\Providers;
 
-use Encore\Admin\Config\Config;
+use Bikaraan\BCore\Config\Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $table = config('admin.extensions.config.table', 'admin_config');
+        $table = config('bcore.extensions.config.table', 'admin_config');
         if (Schema::hasTable($table)) {
             Config::load();
         }

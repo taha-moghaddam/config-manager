@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Bikaraan\BCore\Config;
 
 use Illuminate\Support\ServiceProvider;
 
