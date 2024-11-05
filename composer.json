@@ -11,14 +11,15 @@
             "email": "zosong@126.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://bikaraan.repo.repman.bikaraan.ir"
+        }
+    ],
     "require": {
         "php": ">=7.0.0",
-        "laravel/framework": ">=5.5",
-        "bikaraan/bcore": "dev-main"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~6.0",
-        "laravel/laravel": "~5.5"
+        "bikaraan/bcore": "*"
     },
     "autoload": {
         "psr-4": {
